@@ -1,0 +1,5 @@
+.DS_Store
+node_modules
+/front/.svelte
+/front/build
+/front/functions
