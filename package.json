@@ -2,15 +2,9 @@
   "name": "blog",
   "version": "0.0.1",
   "scripts": {
-    "dev": "run-p dev:css dev:svelte",
-    "dev:css": "NODE_ENV=development postcss ./src/base.css -o ./static/generated/base.css -w",
-    "dev:svelte": "svelte-kit dev",
-    "build": "run-s build:css build:svelte",
-    "build:css": "NODE_ENV=production postcss ./src/base.css -o ./static/generated/base.css",
-    "build:svelte": "svelte-kit build",
-    "start": "svelte-kit start",
     "lint": "prettier --check . && eslint --ignore-path .gitignore .",
-    "lint:fix": "prettier --write . && eslint --ignore-path .gitignore . --fix"
+    "lint:fix": "prettier --write . && eslint --ignore-path .gitignore . --fix",
+    "task": "node --loader ts-node/esm --es-module-specifier-resolution=node ./scripts/tasks.ts"
   },
   "browserslist": [
     "defaults",
@@ -48,6 +42,8 @@
     "svelte": "^3.29.0",
     "svelte-preprocess": "^4.0.0",
     "tailwindcss": "^2.1.1",
+    "tasksfile": "^5.1.1",
+    "ts-node": "^9.1.1",
     "tslib": "^2.0.0",
     "typescript": "^4.0.0",
     "unified": "^9.2.1",

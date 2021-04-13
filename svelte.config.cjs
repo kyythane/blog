@@ -10,6 +10,9 @@ module.exports = {
   extensions: ['.svelte', '.svelte.md'],
   preprocess: [
     sveltePreprocess({
+      defaults: {
+				style: "postcss",
+			},
       postcss: postcssConfig,
     }), 
     mdsvex(mdsvexConfig),

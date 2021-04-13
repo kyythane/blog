@@ -1,5 +1,5 @@
 ---
-title: Test Article
+title: Test Article's Are Cool
 ---
 
 {{TOC}}

@@ -10,7 +10,22 @@
 </script>
 
 <li>
-    <a href="{path}">
+    <a href="{path}" class="{`link ${matches ? 'selected' : ''}`}">
         <slot />
     </a>
 </li>
+
+<style style lang="postcss">
+    .link {
+        @apply px-4 py-2;
+        @apply rounded border-none;
+    }
+
+    .link:hover {
+        @apply bg-red-100;
+    }
+
+    .selected {
+        @apply bg-red-200;
+    }
+</style>
