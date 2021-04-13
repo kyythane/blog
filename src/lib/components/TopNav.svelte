@@ -4,7 +4,7 @@
 
 <nav>
   <ul class="flex flex-row">
-    <TopNavButton path='/'>Home</TopNavButton>
-    <TopNavButton path='/articles' partialPath>Writing</TopNavButton>
+    <TopNavButton path="/">Home</TopNavButton>
+    <TopNavButton path="/articles" partialPath>Writing</TopNavButton>
   </ul>
 </nav>

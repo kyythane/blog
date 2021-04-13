@@ -1,5 +1,7 @@
 ---
 title: Test Article's Are Cool
+category: Testing
+tags: [tag1, tag2, tag3]
 ---
 
 {{TOC}}
@@ -19,4 +21,4 @@ $$
 L = \frac{1}{2} \rho v^2 S C_L
 $$
 
-[^1]: there is some content here 
+[^1]: there is some content here

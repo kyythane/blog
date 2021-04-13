@@ -10,25 +10,20 @@ const slug = require('rehype-slug');
 const tableOfContents = require('@atomictech/rehype-toc');
 
 function linkContent(node) {
-    return h('span.icon-link', { ariaHidden: true });
+  return h('span.icon-link', { ariaHidden: true });
 }
 
 module.exports = {
   extensions: ['.svelte.md'],
-  remarkPlugins: [
-      containers,
-      gemoji,
-      math,
-      footnotes,
-  ],
+  remarkPlugins: [containers, gemoji, math, footnotes],
   rehypePlugins: [
-      slug,
-      katex,
-      rehypeAccessibleEmojis,
-      [tableOfContents, { placeholder: '{{TOC}}' }],
-      [autolinkHeadings, { behavior: 'append', content: linkContent }],
+    slug,
+    katex,
+    rehypeAccessibleEmojis,
+    [tableOfContents, { placeholder: '{{TOC}}' }],
+    [autolinkHeadings, { behavior: 'append', content: linkContent }],
   ],
   layout: {
-      _: './src/lib/layouts/Article.svelte',
-  }
+    _: './src/lib/layouts/Article.svelte',
+  },
 };

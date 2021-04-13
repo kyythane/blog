@@ -11,10 +11,10 @@ module.exports = {
   preprocess: [
     sveltePreprocess({
       defaults: {
-				style: "postcss",
-			},
+        style: 'postcss',
+      },
       postcss: postcssConfig,
-    }), 
+    }),
     mdsvex(mdsvexConfig),
   ],
   kit: {
