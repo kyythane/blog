@@ -1,5 +1,5 @@
 ---
-title: Test Article's Are Cool
+title: Test Articles Are Cool
 category: Testing
 tags: [tag1, tag2, tag3]
 ---

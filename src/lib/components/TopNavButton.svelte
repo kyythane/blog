@@ -3,6 +3,7 @@
   import { buildPathMatcher } from '$lib/utils/navigation';
   export let path: string;
   export let partialPath = false;
+  export let prefetch = false;
   let pathMatcher = (_route: string) => false;
   let matches = false;
   $: pathMatcher = buildPathMatcher(partialPath ? path + '/*' : path);
@@ -10,7 +11,11 @@
 </script>
 
 <li>
-  <a href={path} class={`link ${matches ? 'selected' : ''}`}>
+  <a
+    href={path}
+    sveltekit:prefetch={prefetch || undefined}
+    class={`link ${matches ? 'selected' : ''}`}
+  >
     <slot />
   </a>
 </li>

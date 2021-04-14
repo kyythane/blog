@@ -19,7 +19,7 @@ const processArticles = async <T>(processor: (url: string, article: string) => T
   const paths = fs
     .readdirSync(path.join(workingDir, 'articles'))
     .filter((path) => path.endsWith('.svelte.md'));
-  const batchedPaths = paths.reduce(
+  const batchedPaths: Array<Array<string>> = paths.reduce(
     (acc, path) => {
       if (acc[acc.length - 1].length === maxParallelFiles) {
         return acc.concat([path]);
@@ -34,9 +34,10 @@ const processArticles = async <T>(processor: (url: string, article: string) => T
     batchedPaths.map((batch) => {
       return Promise.all(
         batch.map(async (current) => {
-          const url = path.join('articles/', current);
-          const uri = path.join(workingDir, url);
+          const uri = path.join(workingDir, 'articles/', current);
           const article = fs.readFileSync(uri, { encoding: 'utf8' });
+          const strippedEnding = current.split('.')[0];
+          const url = path.join('articles/', strippedEnding);
           return processor(url, article);
         }),
       );
@@ -58,11 +59,11 @@ const updateMapping = (mapping: { [key: string]: Array<string> }, key: string, v
   return mapping;
 };
 
-const writeAndFormat = (file:string) => {
+const writeAndFormat = (file: string) => {
   const uri = path.join(workingDir, 'articles/_metadata.ts');
-    fs.writeFileSync(uri, file);
-    sh(`npx prettier --write ${uri}`);
-    sh(`eslint --fix ${uri}`);
+  fs.writeFileSync(uri, file);
+  sh(`npx prettier --write ${uri}`);
+  sh(`eslint --fix ${uri}`);
 };
 
 export const buildArticleDictionaries = async () => {
@@ -74,8 +75,11 @@ export const buildArticleDictionaries = async () => {
     metadata.tags.forEach((tag) => updateMapping(acc, tag, metadata.url));
     return acc;
   }, {});
-  const categoryList = Object.keys(categories).map((category) => ({ category, urls: categories[category]}));
-  const tagList = Object.keys(tags).map((tag) => ({ tag, urls: categories[tag]}));
+  const categoryList = Object.keys(categories).map((category) => ({
+    category,
+    urls: categories[category],
+  }));
+  const tagList = Object.keys(tags).map((tag) => ({ tag, urls: categories[tag] }));
   const file = applyTemplate(articles, categoryList, tagList);
   writeAndFormat(file);
 };
@@ -99,7 +103,7 @@ const listTypes = `
     category: string;
     urls: Array<string>;
   };
-`
+`;
 
 const applyTemplate = (
   articles: Array<ArticleMetadata>,

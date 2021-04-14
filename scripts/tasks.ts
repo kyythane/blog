@@ -15,7 +15,7 @@ const lint = {
 };
 
 const init = () => {
-  sh(cssCommand, {async:true});
+  sh(cssCommand, { async: true });
   buildArticleDictionaries();
 };
 

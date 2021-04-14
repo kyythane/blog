@@ -21,11 +21,11 @@ export type TagMetadata = {
 
 export const articleList = [
   {
-    title: "Test Article's Are Cool",
+    title: 'Test Articles Are Cool',
     category: 'Testing',
     tags: ['tag1', 'tag2', 'tag3'],
-    url: 'articles/post.svelte.md',
+    url: 'articles/post',
   },
 ];
-export const catagoryList = [{ category: 'Testing', urls: ['articles/post.svelte.md'] }];
+export const catagoryList = [{ category: 'Testing', urls: ['articles/post'] }];
 export const tagList = [{ tag: 'tag1' }, { tag: 'tag2' }, { tag: 'tag3' }];

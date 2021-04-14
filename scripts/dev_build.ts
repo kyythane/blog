@@ -1,17 +1,23 @@
 import { sh } from 'tasksfile';
+import { buildArticleDictionaries } from './generate_page_data.js';
 
 const cssCommand =
   'NODE_ENV=development postcss ./src/styles/template.css -o ./src/styles/generated.css -w';
 const svelteCommand = 'svelte-kit dev';
+
+const css = (): void => {
+  sh(cssCommand, { async: true });
+};
+const svelte = async () => {
+  await buildArticleDictionaries();
+  sh(svelteCommand, { async: true });
+};
+
 export const dev = {
-  css(): void {
-    sh(cssCommand);
-  },
-  svelte(): void {
-    sh(svelteCommand);
-  },
-  default(): void {
-    sh(cssCommand, { async: true });
-    sh(svelteCommand, { async: true });
+  css,
+  svelte,
+  default() {
+    css();
+    svelte();
   },
 };
