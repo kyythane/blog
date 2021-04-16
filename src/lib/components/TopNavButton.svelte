@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import { page } from '$app/stores';
   import { buildPathMatcher } from '$lib/utils/navigation';
   export let path: string;

@@ -3,14 +3,22 @@ import { dev } from './dev_build.js';
 import { buildArticleDictionaries } from './generate_page_data.js';
 import { cssCommand, prod } from './prod_build.js';
 
+const noop = () => {
+  return;
+};
+
 const lint = {
   fix() {
-    sh('npx prettier --write .');
+    sh('npx prettier --ignore-path .gitignore --write .');
     sh('npx eslint --ignore-path .gitignore . --fix');
+    sh('npx stylelint --ignore-path .gitignore "**/*.{css,svelte,svg}" --fix');
   },
   default() {
-    sh('npx prettier --check .', { async: true });
-    sh('npx eslint --ignore-path .gitignore .', { async: true });
+    sh('npx prettier --ignore-path .gitignore --check .', { async: true }).catch(noop);
+    sh('npx eslint --ignore-path .gitignore .', { async: true }).catch(noop);
+    sh('npx stylelint --ignore-path .gitignore "**/*.{css,svelte,svg}"', { async: true }).catch(
+      noop,
+    );
   },
 };
 

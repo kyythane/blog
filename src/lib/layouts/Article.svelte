@@ -1,7 +1,7 @@
-<script lang="ts">
-  export let title: string;
-  export let category: string;
-  export let tags: Array<string>;
+<script>
+  export let title;
+  export let category;
+  export let tags;
 </script>
 
 <title>{title}</title>

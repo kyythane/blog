@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import TopNavButton from './TopNavButton.svelte';
 </script>
 

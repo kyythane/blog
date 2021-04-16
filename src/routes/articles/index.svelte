@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script context="module">
   /**
    * @type {import('@sveltejs/kit').Load}
    */
@@ -22,7 +22,7 @@
   }
 </script>
 
-<script lang="ts">
+<script>
   import type { ArticleMetadata } from './_metadata';
   export let articles: Array<ArticleMetadata>;
 </script>
