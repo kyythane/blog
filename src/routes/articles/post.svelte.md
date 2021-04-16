@@ -4,16 +4,17 @@ category: Testing
 tags: [tag1, tag2, tag3]
 ---
 
+
 {{TOC}}
 
-# Section 1
+## Section 1
 
 This is some test content.
 This test content has a footnote[^1].
 
-## Subsection 2
+### Subsection 2
 
-# Another Section
+## Another Section
 
 :+1:
 

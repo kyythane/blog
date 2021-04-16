@@ -10,7 +10,7 @@
     "not IE 11"
   ],
   "lint-staged": {
-    "**/*.(ts|js|svelte)": [
+    "**/*.(ts|js)": [
       "eslint --cache --fix",
       "prettier --write --ignore-unknown"
     ],
@@ -18,6 +18,9 @@
       "eslint --cache --fix",
       "prettier --write --ignore-unknown",
       "stylelint --fix"
+    ],
+    "**/*.svelte.md": [
+      "markdownlint --fix"
     ],
     "**/*.css": [
       "stylelint --fix"
@@ -39,6 +42,7 @@
     "hastscript": "^6.0.0",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
+    "markdownlint-cli": "^0.27.1",
     "mdsvex": "^0.9.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.2.10",
@@ -68,5 +72,8 @@
     "unified": "^9.2.1",
     "vite": "^2.1.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "markdownlint": "^0.23.1"
+  }
 }

@@ -12,6 +12,7 @@ const lint = {
     sh('npx prettier --ignore-path .gitignore --write .');
     sh('npx eslint --ignore-path .gitignore . --fix');
     sh('npx stylelint --ignore-path .gitignore "**/*.{css,svelte,svg}" --fix');
+    sh('npx markdownlint --ignore-path .gitignore "**/*.svelte.md" --fix');
   },
   default() {
     sh('npx prettier --ignore-path .gitignore --check .', { async: true }).catch(noop);
@@ -19,6 +20,7 @@ const lint = {
     sh('npx stylelint --ignore-path .gitignore "**/*.{css,svelte,svg}"', { async: true }).catch(
       noop,
     );
+    sh('npx markdownlint --ignore-path .gitignore "**/*.svelte.md"', { async: true }).catch(noop);
   },
 };
 
