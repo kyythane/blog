@@ -33,7 +33,7 @@ cli({
   dev,
   prod,
   start() {
-    sh('svelte-kit start');
+    sh('svelte-kit start', { async: true });
   },
   lint,
   init,

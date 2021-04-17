@@ -22,7 +22,9 @@
 
 <style>
   .link {
-    @apply px-4 py-2;
+    display: inline-block;
+
+    @apply px-4 py-4;
     @apply rounded border-none;
   }
 

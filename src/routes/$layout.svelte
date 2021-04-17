@@ -11,7 +11,7 @@
 <style>
   .main-wrapper {
     display: grid;
-    grid-template-rows: 4em 1fr 4em;
+    grid-template-rows: 2rem 1fr 2rem;
 
     @apply grid-cols-1 gap-4;
   }
