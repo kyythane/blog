@@ -10,7 +10,7 @@ const slug = require('rehype-slug');
 const tableOfContents = require('@atomictech/rehype-toc');
 
 function linkContent(node) {
-  return h('span.icon-link', { ariaHidden: true });
+  return h('span.fas.fa-link.article-section-link', { ariaHidden: true });
 }
 
 module.exports = {

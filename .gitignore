@@ -5,3 +5,4 @@ node_modules
 /functions
 src/styles/generated.css
 .eslintcache
+static/font-awesome

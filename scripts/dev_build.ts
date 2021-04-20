@@ -1,5 +1,5 @@
 import { sh } from 'tasksfile';
-import { buildArticleDictionaries } from './generate_page_data.js';
+import { prebuildCSS, prebuildSvelte } from './build_shared.js';
 import { stringifyOptions } from './utils.js';
 
 const cssCommand =
@@ -7,10 +7,11 @@ const cssCommand =
 const svelteCommand = 'svelte-kit dev';
 
 const css = (): void => {
+  prebuildCSS();
   sh(cssCommand, { async: true });
 };
 const svelte = async (options: { [key: string]: string }) => {
-  await buildArticleDictionaries();
+  await prebuildSvelte();
   sh(`${svelteCommand} ${stringifyOptions(options)}`, { async: true });
 };
 

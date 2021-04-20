@@ -14,7 +14,15 @@ This test content has a footnote[^1].
 
 ### Subsection 2
 
-## Another Section
+## Another Section 1
+
+### Another Section 2
+
+#### Another Section 3
+
+##### Another Section 4
+
+###### Another Section 5
 
 :+1:
 

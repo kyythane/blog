@@ -10,21 +10,19 @@
   $: matches = pathMatcher($page.path);
 </script>
 
-<li>
-  <a
-    href={path}
-    sveltekit:prefetch={prefetch || undefined}
-    class={`link ${matches ? 'selected' : ''}`}
-  >
-    <slot />
-  </a>
-</li>
+<a
+  href={path}
+  sveltekit:prefetch={prefetch || undefined}
+  class={`link ${matches ? 'selected' : ''}`}
+>
+  <slot />
+</a>
 
 <style>
   .link {
     display: inline-block;
 
-    @apply px-4 py-4;
+    @apply px-4 py-2;
     @apply rounded border-none;
   }
 
