@@ -8,6 +8,7 @@ const math = require('remark-math');
 const { rehypeAccessibleEmojis } = require('rehype-accessible-emojis');
 const slug = require('rehype-slug');
 const tableOfContents = require('@atomictech/rehype-toc');
+const addClasses = require('@noxify/gridsome-remark-classes');
 
 function linkContent(node) {
   return h('span.fas.fa-link.article-section-link', { ariaHidden: true });
@@ -15,7 +16,13 @@ function linkContent(node) {
 
 module.exports = {
   extensions: ['.svelte.md'],
-  remarkPlugins: [containers, gemoji, math, footnotes],
+  remarkPlugins: [
+    containers,
+    gemoji,
+    math,
+    footnotes,
+    [addClasses, { heading: 'article-section-heading' }],
+  ],
   rehypePlugins: [
     slug,
     katex,

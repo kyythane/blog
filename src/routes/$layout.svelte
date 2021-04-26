@@ -43,10 +43,12 @@
   }
 
   :global(.article-section-link) {
-    @apply text-gray-300 mx-2;
+    @apply text-gray-300 mx-2 opacity-0;
+
+    transition: opacity 300ms ease-out;
   }
 
   :global(.article-section-link:hover) {
-    @apply text-gray-500;
+    @apply text-gray-500 opacity-100;
   }
 </style>
